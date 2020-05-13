@@ -1,14 +1,14 @@
 % Copyright (C) 2020 Fredy Vides
-% function [Thp,Tp,t,x,Y]=NLMechanicalSystemID(m)
+% function [Thp,f,t,x,Y]=NLMechanicalSystemID(m)
 % A sytem identificacion computational 
 % implementation
 
-% Example: [Thp,Tp,t,x,Y]=NLMechanicalSystemID(120)
+% Example: [Thp,f,t,x,Y]=NLMechanicalSystemID(180)
 
 % Author: Fredy Vides <fredy@HPCLAB>
 % Scientific Computing Innovation Center
 % Created: 2020-05-03
-function [Thp,Tp,t,x,Yp]=NLMechanicalSystemID(m)
+function [Thp,f,t,x,Yp]=NLMechanicalSystemID(m)
 subplot(211);
 [t,x]=NLMechanicalSystem(2,.1,-4,30,[1,0]);
 hold on;
@@ -31,15 +31,4 @@ plot(t,Yp(2,:),'r.-','markersize',12);
 legend('x','dx/dt')
 axis equal;
 grid on;
-thp=eig(Thp);
-thp=thp(1);
-fhp=@(t)abs(thp.^t-thp);
-tt=2:1/200:m;
-mp=min(fhp(tt));
-fp=min(find(fhp(tt)==mp));
-Tp=tt(fp);
-tt=(Tp-1):2/500:(Tp+1);
-mp=min(fhp(tt));
-fp=find(fhp(tt)==mp);
-Tp=tt(fp);
 end
