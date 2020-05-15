@@ -14,6 +14,11 @@
 % csvwrite ('TXdata.csv', [t.' x]);
 % [t,x,xp,Ap,Aps]=BuildingDynamicsA('TXdata',3,...
 % 20,1,1);
+% One can also use the csv data files in LDSI repository
+% [t,x,xp,Ap,Aps]=BuildingDynamicsA('TXdataDissipative',3,...
+% 20,0,0);
+% [t,x,xp,Ap,Aps]=BuildingDynamicsA('TXdataConservative',3,...
+% 20,1,1);
 function [t,x,xp,Ap,Aps]=BuildingDynamicsA(fname,sm,ss,sp,smat)
    TXdata=csvread([fname,'.csv']);
    [N,n]=size(TXdata);
