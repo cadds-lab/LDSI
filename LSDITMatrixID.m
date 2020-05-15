@@ -11,7 +11,7 @@
 % Author: Fredy Vides <fredy@HPCLAB>
 % Scientific Computing Innovation Center
 % Created: 2020-05-03
-function [A,Ap]=LSDITMatrixID(x,m)
+function [A,Ap]=LSDITMatrixID(x,m,sp)
   [N,n]=size(x);
   m=min([m N-1]);
   x0=x(1:m,:);

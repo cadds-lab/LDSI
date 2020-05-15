@@ -20,6 +20,7 @@ function [Ha,A]=HLSDITMatrixID(x,m)
   Ha=(Ha+Z*Ha.'*Z)/2;
   A=expm(Ha);
   A=(A-Z*((A.')\Z))/2;
+  Ha=A;
   [v,a]=eig(A);
   a=diag(a);
   a=diag(a./abs(a));
